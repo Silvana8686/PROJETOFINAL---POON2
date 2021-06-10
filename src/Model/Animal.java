@@ -2,27 +2,37 @@ package Model;
 
 public abstract class Animal{
     
- public String nome;
- public double peso;
- public int id;
- String tomouVacina;
+    public String nome;
+    public double peso;
+    public int id;
+    String ultimaVacina;
     
- public abstract void cadastrar();
- public abstract void excluir();
- 
- 
-  public Animal(){
+    public abstract void cadastrar();
+    public abstract void excluir();
+    
+    public String listar(){
+        return "\nNome: "+ nome +"\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina;
     
     }
  
- public Animal(String nome, int id,String tomouVacina){
-     super();
-     this.nome =nome;
-     this.id = id;
-     this.tomouVacina = tomouVacina;
-     
-}
+    public Animal(){
+    
+    }
 
+    public Animal(String nome, double peso, String ultimaVacina) {
+        this.nome = nome;
+        this.peso = peso;
+        this.ultimaVacina = ultimaVacina;
+    }
+  
+    public Animal(String nome, double peso, int id, String ultimoVacina) {
+        this.nome = nome;
+        this.peso = peso;
+        this.id = id;
+        this.ultimaVacina = ultimaVacina;
+    }
+ 
+ 
     public String getNome() {
         return nome;
     }
@@ -48,17 +58,14 @@ public abstract class Animal{
         this.peso = peso;
     }
 
-    public String getTomouVacina() {
-        return tomouVacina;
+    public String getUltimaVacina() {
+        return ultimaVacina;
     }
 
-    public void setTomouVacina(String tomouVacina) {
-        this.tomouVacina = tomouVacina;
+    public void setUltimaVacina(String ultimaVacina) {
+        this.ultimaVacina = ultimaVacina;
     }
 
-  public String Informacoes(){
-        return null;
     
-    }
 
 }

@@ -4,31 +4,38 @@ import javax.swing.JOptionPane;
 
 
 public class Gato extends Animal{
-public String cores;  
+    public String cor;  
 
 
-public Gato(){
+    public Gato(){
     
     }
 
-
-public Gato (String nome, int id,String tomouVacina, String cores){
-     
-     this.nome =nome;
-     this.id = id;
-     this.tomouVacina = tomouVacina;
-     this.cores = cores;
-      
-}
-
-
-    public String getCores() {
-        return cores;
+    public Gato(String cor, String nome, double peso, String ultimaVacina) {
+        super(nome, peso, ultimaVacina);
+        this.cor = cor;
     }
 
-    public void setCores(String cores) {
-        this.cores = cores;
+    public Gato(String cor, String nome, double peso, int id, String ultimoVacina) {
+        super(nome, peso, id, ultimoVacina);
+        this.cor = cor;
     }
+
+    
+    
+    
+    
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+
+
+
     
 
     @Override
@@ -45,8 +52,8 @@ public Gato (String nome, int id,String tomouVacina, String cores){
     
     
     @Override
-    public String Informacoes(){
-    return "{'Id': '" + id + "'Nome': '" + nome+ " 'Vacinado': '" + this.getTomouVacina() + "' , 'Peso': " +peso+ "'Kg'" +" , 'As cores': " + cores + " }";
+    public String listar(){
+    return "\nNome: "+ nome +"\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nCor: " + cor;
     
     }
 

@@ -4,23 +4,26 @@ import javax.swing.JOptionPane;
 
 
 public class Cachorro extends Animal {
-public String tipoPelo; 
-
-
- public Cachorro(){
     
+    public String tipoPelo; 
+    
+
+    public Cachorro(){
+    
+    }
+
+    public Cachorro(String tipoPelo, String nome, double peso, String ultimaVacina) {
+        super(nome, peso, ultimaVacina);
+        this.tipoPelo = tipoPelo;
+    }
+
+    public Cachorro(String tipoPelo, String nome, double peso, int id, String ultimoVacina) {
+        super(nome, peso, id, ultimoVacina);
+        this.tipoPelo = tipoPelo;
     }
  
 
-public Cachorro (String nome, int id,String tomouVacina, double peso, String tipoPelo){
-   
-     this.nome =nome;
-     this.id = id;
-     this.peso = peso;
-     this.tomouVacina = tomouVacina;
-     this.tipoPelo = tipoPelo;
-      
-}
+    
 
    
     public String getTipoPelo() {
@@ -46,8 +49,8 @@ public Cachorro (String nome, int id,String tomouVacina, double peso, String tip
     
     
     @Override
-    public String Informacoes(){
-        return "{'Id': '" + id + "'Nome': '" + nome+ " 'Vacinado': '" + this.getTomouVacina() + "' , 'Peso': " +peso+ "'Kg'" +" , 'Pelagem': " + tipoPelo + " }";
+    public String listar(){
+        return "\nNome: "+ nome +"\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nTipo de Pêlo: " + tipoPelo;
     
     }
 

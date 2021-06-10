@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import Model.Cachorro;
 import Model.Cavalo;
@@ -24,7 +24,7 @@ public class view {
                     "1 - Cadastrar  Cachorro \n" + 
                     "2 - Remover Cachorro da Lista \n" + 
                     "3 - Listar de todos os Cachorros Cadatrados \n" + 
-                    "4- Cadastrar Gato \n"+
+                    "4 - Cadastrar Gato \n"+
                     "5 - Remover  Gato da Lista \n" +
                     "6 - Lista de todos os Gatos cadastrados \n" +
                     "7 - Cadastrar  Cavalo \n" + 
@@ -34,7 +34,7 @@ public class view {
             opcao =  JOptionPane.showInputDialog(texto);
 
             switch( opcao ){
-                case "1":
+                    case "1":
                         
                     Cachorro n = new Cachorro();
                    
@@ -47,8 +47,8 @@ public class view {
                     n.setNome(nome);
                     
                    
-                    String tomouVacina = JOptionPane.showInputDialog("Animal está Vacinado?");
-                    n.setTomouVacina(tomouVacina);
+                    String tomouVacina = JOptionPane.showInputDialog("Data da última vacina");
+                    n.setUltimaVacina(tomouVacina);
                     
                    
                     String peso = JOptionPane.showInputDialog("Qual o peso do Animal");
@@ -73,10 +73,10 @@ public class view {
                     break;
                     
                     
-                case "3":
+                    case "3":
                     String cont = "";
                     for (Cachorro pi : pc) {
-                        cont += pi.Informacoes()+ "\n";
+                        cont += pi.listar()+ "\n";
                     }
                    JOptionPane.showMessageDialog(null, cont);
                     break;
@@ -96,8 +96,8 @@ public class view {
                     g.setNome(nomee);
                     
                    
-                    String tomouVacinaa = JOptionPane.showInputDialog("Animal está Vacinado?");
-                    g.setTomouVacina(tomouVacinaa);
+                    String tomouVacinaa = JOptionPane.showInputDialog("Data da última vacina");
+                    g.setUltimaVacina(tomouVacinaa);
                     
                    
                     String pesoo = JOptionPane.showInputDialog("Qual o peso do Animal");
@@ -106,7 +106,7 @@ public class view {
                     
                     
                      String cores = JOptionPane.showInputDialog("Quais  cores do pelo do Animal");
-                    g.setCores(cores);
+                    g.setCor(cores);
                     
                     g.cadastrar();
                     gt.add(g);
@@ -125,16 +125,16 @@ public class view {
                     case "6":
                     String contt = "";
                     for (Gato pi : gt) {
-                        contt += pi.Informacoes()+ "\n";
+                        contt += pi.listar()+ "\n";
                     }
-                   JOptionPane.showMessageDialog(null, contt);
+                    JOptionPane.showMessageDialog(null, contt);
                     break;
                     
                     
                     
-                     case "7":
+                    case "7":
                         
-                     Cavalo c = new Cavalo();
+                    Cavalo c = new Cavalo();
                      
                     String iddd = JOptionPane.showInputDialog("Id do Animal");
                     id = iddd.replace(",", ".");
@@ -145,8 +145,8 @@ public class view {
                     c.setNome(nomeee);
                     
                    
-                    String tomouVacinaaa = JOptionPane.showInputDialog("Animal está Vacinado?");
-                    c.setTomouVacina(tomouVacinaaa);
+                    String tomouVacinaaa = JOptionPane.showInputDialog("Data da última vacina");
+                    c.setUltimaVacina(tomouVacinaaa);
                     
                    
                     String pesooo = JOptionPane.showInputDialog("Qual o peso do Animal");
@@ -154,8 +154,9 @@ public class view {
                     c.setPeso(Double.valueOf( pesooo ) );
                     
                     
-                    String velocidade = JOptionPane.showInputDialog("Qual a Velocidade do Animal");
-                    c.setVelocidade(velocidade);
+                    String velocidade = JOptionPane.showInputDialog("Qual a Velocidade do Animal?");
+                    velocidade = velocidade.replace(",", ".");
+                    c.setVelocidade(Double.valueOf( velocidade ) );
                     c.cadastrar();
                     cl.add(c);
                     
@@ -174,9 +175,9 @@ public class view {
                     case "9":
                     String conttt = "";
                     for (Cavalo pi : cl) {
-                        conttt += pi.Informacoes()+ "\n";
+                        conttt += pi.listar()+ "\n";
                     }
-                   JOptionPane.showMessageDialog(null, conttt);
+                    JOptionPane.showMessageDialog(null, conttt);
                     break;
                     
                     
@@ -192,5 +193,5 @@ public class view {
     
 }
 
-
+*/
 

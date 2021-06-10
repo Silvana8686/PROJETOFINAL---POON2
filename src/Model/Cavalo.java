@@ -3,27 +3,30 @@ package Model;
 import javax.swing.JOptionPane;
 
 public class Cavalo extends Animal{
-public  String velocidade;  
+    public  double velocidade;  
 
 
-public Cavalo(){
+    public Cavalo(){
     
     }
 
-public Cavalo (String nome, int id,String tomouVacina, String velocidade){
-     
-     this.nome =nome;
-     this.id = id;
-     this.tomouVacina = tomouVacina;
-     this.velocidade = velocidade;
-      
-}
+    public Cavalo(double velocidade, String nome, double peso, String ultimaVacina) {
+        super(nome, peso, ultimaVacina);
+        this.velocidade = velocidade;
+    }
 
-    public String getVelocidade() {
+    public Cavalo(double velocidade, String nome, double peso, int id, String ultimoVacina) {
+        super(nome, peso, id, ultimoVacina);
+        this.velocidade = velocidade;
+    }
+
+    
+
+    public double getVelocidade() {
         return velocidade;
     }
 
-    public void setVelocidade(String velocidade) {
+    public void setVelocidade(double velocidade) {
         this.velocidade = velocidade;
     }
 
@@ -42,8 +45,8 @@ public Cavalo (String nome, int id,String tomouVacina, String velocidade){
    
     
     @Override
-    public String Informacoes(){
-         return "{'Id': '" + id + "'Nome': '" + nome+ " 'Vacinado': '" + this.getTomouVacina() + "' , 'Peso': " +peso+ "'Kg'" +" , 'Velocidade  do Animal': " + velocidade + " }";
+    public String listar(){
+         return "\nNome: "+ nome +"\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nVelocidade: " + velocidade;
     
     }
 
