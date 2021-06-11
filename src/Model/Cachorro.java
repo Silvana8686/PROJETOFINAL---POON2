@@ -17,8 +17,8 @@ public class Cachorro extends Animal {
         this.tipoPelo = tipoPelo;
     }
 
-    public Cachorro(String tipoPelo, String nome, double peso, int id, String ultimoVacina) {
-        super(nome, peso, id, ultimoVacina);
+    public Cachorro(String tipoPelo, String nome, double peso, int id, String ultimaVacina) {
+        super(nome, peso, id, ultimaVacina);
         this.tipoPelo = tipoPelo;
     }
  
@@ -50,7 +50,7 @@ public class Cachorro extends Animal {
     
     @Override
     public String listar(){
-        return "\nNome: "+ nome +"\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nTipo de Pêlo: " + tipoPelo;
+        return "\nNome: "+ nome + "\nNúmero de Identificação: " + id + "\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nTipo de Pêlo: " + tipoPelo;
     
     }
 

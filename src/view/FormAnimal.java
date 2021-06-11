@@ -21,7 +21,7 @@ public class FormAnimal extends javax.swing.JInternalFrame {
     /**
      * Creates new form FormAnimal
      */
-    public FormAnimal() {
+    public FormAnimal(TelaInicial telaInicial) {
         initComponents();
         lblTipoPelo.setVisible(false);
         txtTipoPelo.setVisible(false);
@@ -29,11 +29,16 @@ public class FormAnimal extends javax.swing.JInternalFrame {
         txtVelocidade.setVisible(false);
         lblCor.setVisible(false);
         txtCor.setVisible(false);
-        listaCachorro = new ArrayList<Cachorro>();
+        this.telaInicial = telaInicial;
+        
+        /*this.listaCachorro = listaCachorro;
         listaGato = new ArrayList<Gato>();
-        listaCavalo = new ArrayList<Cavalo>();
+        listaCavalo = new ArrayList<Cavalo>();*/
     }
-
+    
+    
+    public TelaInicial telaInicial;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,7 +115,11 @@ public class FormAnimal extends javax.swing.JInternalFrame {
 
         lblVacina.setText("Data da última vacina:");
 
-        formattedtxtVacina.setText("dd/mm/aaaa");
+        try {
+            formattedtxtVacina.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         lblTipoPelo.setText("Tipo de Pelo (curto ou longo):");
 
@@ -218,7 +227,7 @@ public class FormAnimal extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     
-    public List<Cachorro> listaCachorro;
+    /*public List<Cachorro> listaCachorro;
     public List<Gato> listaGato;
     public List<Cavalo> listaCavalo;
     
@@ -234,7 +243,7 @@ public class FormAnimal extends javax.swing.JInternalFrame {
 
     public List<Cavalo> getListaCavalo() {
         return listaCavalo;
-    }
+    }*/
     
     
     
@@ -290,12 +299,49 @@ public class FormAnimal extends javax.swing.JInternalFrame {
             
             
             Cachorro c = new Cachorro(textTipoPelo, textNome, PesoC, ID, textVacina);
-            listaCachorro.add(c);
-            String cont = "";
-            for (Cachorro cachorroC : listaCachorro) {
-                cont += cachorroC.listar()+ "\n";
-            }
-            JOptionPane.showMessageDialog(null, cont);
+            telaInicial.listaCachorro.add(c);
+            JOptionPane.showMessageDialog(null, "Cachorro Cadastrado");
+        }else if (rbGato.isSelected()){
+            
+            String textID = txtID.getText();
+            textID = textID.replace(",", ".");
+            int ID ;
+            ID = Integer.parseInt(textID);
+            
+            String textCor = txtCor.getText();
+            String textNome = txtNome.getText();
+            String textVacina = formattedtxtVacina.getText();
+            
+            String textPeso = txtPeso.getText();
+            double PesoG;
+            PesoG = Double.parseDouble(textPeso);
+            
+            
+            Gato g = new Gato(textCor, textNome, PesoG, ID, textVacina);
+            telaInicial.listaGato.add(g);
+            JOptionPane.showMessageDialog(null, "Gato Cadastrado");
+        }else if(rbCavalo.isSelected()){
+            
+            String textID = txtID.getText();
+            textID = textID.replace(",", ".");
+            int ID ;
+            ID = Integer.parseInt(textID);
+            
+            String textVelocidade = txtVelocidade.getText();
+            String textNome = txtNome.getText();
+            String textVacina = formattedtxtVacina.getText();
+            
+            String textPeso = txtPeso.getText();
+            double PesoCv;
+            PesoCv = Double.parseDouble(textPeso);
+            double VelCv;
+            VelCv = Double.parseDouble(textVelocidade);
+            
+            Cavalo cv = new Cavalo(VelCv, textNome, PesoCv, ID, textVacina);
+            telaInicial.listaCavalo.add(cv);
+            JOptionPane.showMessageDialog(null, "Cavalo Cadastrado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Por Favor Escolher Classe de Animal");
         }
         
     }//GEN-LAST:event_btnCadastrarMouseClicked

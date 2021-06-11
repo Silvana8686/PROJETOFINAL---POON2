@@ -5,7 +5,7 @@ public abstract class Animal{
     public String nome;
     public double peso;
     public int id;
-    String ultimaVacina;
+    public String ultimaVacina;
     
     public abstract void cadastrar();
     public abstract void excluir();
@@ -25,7 +25,7 @@ public abstract class Animal{
         this.ultimaVacina = ultimaVacina;
     }
   
-    public Animal(String nome, double peso, int id, String ultimoVacina) {
+    public Animal(String nome, double peso, int id, String ultimaVacina) {
         this.nome = nome;
         this.peso = peso;
         this.id = id;

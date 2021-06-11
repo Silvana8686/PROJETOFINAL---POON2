@@ -17,15 +17,20 @@ import javax.swing.JOptionPane;
  * @author henriquegoebel
  */
 public class TelaInicial extends javax.swing.JFrame {
-
+    public List<Cachorro> listaCachorro;
+    public List<Gato> listaGato;
+    public List<Cavalo> listaCavalo;
     /**
      * Creates new form TelaInicial
      */
     public TelaInicial() {
         initComponents();
-        
+        listaCachorro = new ArrayList<>();
+        listaGato = new ArrayList<>();
+        listaCavalo = new ArrayList<>();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +68,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenu2.add(itemCadastrar);
 
         itemExcluir.setText("Remover Animal");
+        itemExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemExcluirActionPerformed(evt);
+            }
+        });
         jMenu2.add(itemExcluir);
 
         itemListar.setText("Listar Animais");
@@ -95,26 +105,62 @@ public class TelaInicial extends javax.swing.JFrame {
     
     
     private void itemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarActionPerformed
-        FormAnimal form = new FormAnimal();
+        FormAnimal form = new FormAnimal(this);
         jDesktopPane1.add(form);
         form.setVisible(true);
     }//GEN-LAST:event_itemCadastrarActionPerformed
 
     private void itemListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListarActionPerformed
+        listarAnimais();
         
-        /*String cont = "";
-        for (Cachorro cachorroC : listaCachorro) {
-            cont += cachorroC.listar()+ "\n";
-        }
-        JOptionPane.showMessageDialog(null, cont);
-        */
     }//GEN-LAST:event_itemListarActionPerformed
 
+    private void itemExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemExcluirActionPerformed
+        int i;
+        String nomeExcluir = JOptionPane.showInputDialog("Escreva o nome do Animal que deseja excluir:");
+        boolean encontrou = false;
+        for (i = 0 ; i < listaCachorro.size(); i++){
+            if (listaCachorro.get(i).getNome().equalsIgnoreCase(nomeExcluir)){
+                listaCachorro.remove(i);
+                encontrou = true;
+            }
+        }
+        for (i = 0 ; i < listaGato.size(); i++){
+            if (listaGato.get(i).getNome().equalsIgnoreCase(nomeExcluir)){
+                listaGato.remove(i);
+                encontrou = true;
+            }
+        }
+        for (i = 0 ; i < listaCavalo.size(); i++){
+            if (listaCavalo.get(i).getNome().equalsIgnoreCase(nomeExcluir)){
+                listaCavalo.remove(i);
+                encontrou = true;
+            }
+        }
+        if(encontrou){
+            JOptionPane.showMessageDialog(null, "Animal Deletado");
+        }else{
+            JOptionPane.showMessageDialog(null, "Animal não encontrado");
+                  
+        }
+    }//GEN-LAST:event_itemExcluirActionPerformed
+
     
+    public void listarAnimais(){
+        String cont = "";
+        for (Cachorro cachorroC : listaCachorro) {
+            cont += "Animal: Cachorro" + cachorroC.listar()+ "\n";
+        }
+        for (Gato gatoG : listaGato) {
+            cont += "Animal: Gato" +gatoG.listar()+ "\n";
+        }
+        for (Cavalo cavaloCl : listaCavalo) {
+            cont += "Animal: Cavalo" +cavaloCl.listar()+ "\n";
+        }
+        JOptionPane.showMessageDialog(null, cont);
+    }
     
-    
-    
-    
+        
     /**
      * @param args the command line arguments
      */

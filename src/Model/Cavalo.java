@@ -46,7 +46,7 @@ public class Cavalo extends Animal{
     
     @Override
     public String listar(){
-         return "\nNome: "+ nome +"\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nVelocidade: " + velocidade;
+         return "\nNome: "+ nome + "\nNúmero de Identificação: " + id + "\nPeso: " + peso + "\nData da Última Vacina: " + ultimaVacina + "\nVelocidade: " + velocidade;
     
     }
 
